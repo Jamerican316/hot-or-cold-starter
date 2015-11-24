@@ -18,26 +18,15 @@
 	box-sizing: border-box;
 }
 
-html {
-	width: 100%;
-	height: 100%;
-	background-color: #394264;
-}
-
 body {
-	position: relative;
-	width: 98%;
-	height: 96%;
-	margin: 0.8em auto;
 	font-family: 'Lato', Calibri, Arial, sans-serif;
-	background-color: #1F253D;
 	text-align: center;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	-webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-	-moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
-	/*box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);*/
+	background-image: url('../images/joker.jpg');
+	background-repeat: none;
+	-webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+    background-size: cover;
 }
 
 a {
@@ -45,7 +34,7 @@ a {
 	color: black;
 }
 
-ul li {	
+nav > ul > li {	
 	display: inline;
 }
 
@@ -81,8 +70,10 @@ nav a {
 h1 {
 	font-weight: 900;
 	font-size: 3em;
-	padding: 0.8em;
 	color: #fff;
+	position: relative;
+	top:-.5em;
+	text-shadow: 1px 1px purple;
 
 }
 
@@ -91,8 +82,12 @@ h1 {
 	width: 100%;
 	height: 100%;
 	color: #fff;
-	background: #e74c3c;
 	position: absolute;
+	background-image: url('../images/jokerbkgrnd.jpg');
+	-webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+    background-size: cover;
 	top: 0;
 	left: 0;
 	margin: 0;
@@ -102,12 +97,12 @@ h1 {
 
 .content {
 	color: #fff;
-	background: #e74c3c;
+	text-shadow: 1px 1px black;
 	position: relative;
-	height: auto;
-	width: 600px;
-	border-radius: 3px;
-	top: 15%;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
 	margin: auto auto;
 	border: 1px solid rgba(0,0,0,0.1);
 }
@@ -119,7 +114,6 @@ h1 {
 	font-size: 2.4em;
 	font-weight: 300;
 	opacity: 0.8;
-	background: rgba(0,0,0,0.1);
 	border-radius: 3px 3px 0 0;
 }
 
@@ -155,62 +149,34 @@ h1 {
 }
 
 .content > div a {
-	font-size: 0.8em;
-	background: #1F253D;
+	font-size: 4em;
 	color: #95a5a6;
 	padding: 0.5em 2em;
-	margin-bottom: 50px;
 	border-radius: 3px;
 }
 
+.gotit {
+	margin-top: 5em;
+}
 /*---------------------------------------------------------------------------------
    Game Section Styles
 ---------------------------------------------------------------------------------*/
 
 .game {
 	position: relative;
-	background-color: #394264;
 	width: 380px;
 	height: 380px;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	margin: 0 auto;
-
-	/*box-shadow: rgb(26, 31, 52) 1px 1px,
-    rgb(26, 31, 52) 2px 2px,
-    rgb(26, 31, 52) 3px 3px,
-    rgb(26, 31, 53) 4px 4px,
-    rgb(26, 32, 53) 5px 5px,
-    rgb(27, 32, 53) 6px 6px,
-    rgb(27, 32, 54) 7px 7px,
-    rgb(27, 32, 54) 8px 8px,
-    rgb(27, 32, 54) 9px 9px,
-    rgb(27, 33, 55) 10px 10px,
-    rgb(27, 33, 55) 11px 11px,
-    rgb(28, 33, 55) 12px 12px,
-    rgb(28, 33, 56) 13px 13px,
-    rgb(28, 34, 56) 14px 14px,
-    rgb(28, 34, 56) 15px 15px,
-    rgb(28, 34, 57) 16px 16px,
-    rgb(29, 34, 57) 17px 17px,
-    rgb(29, 34, 57) 18px 18px,
-    rgb(29, 35, 58) 19px 19px,
-    rgb(29, 35, 58) 20px 20px,
-    rgb(29, 35, 58) 21px 21px,
-    rgb(29, 35, 59) 22px 22px,
-    rgb(30, 35, 59) 23px 23px,
-    rgb(30, 36, 59) 24px 24px,
-    rgb(30, 36, 60) 25px 25px,
-    rgb(30, 36, 60) 26px 26px,
-    rgb(30, 36, 60) 27px 27px,
-    rgb(31, 37, 61) 28px 28px;*/
-
 }
 
 h2 {
+	position: relative;
+	right: 16em;
+	top: 5em;
 	margin: 0 auto;	
-	background: #cc324b;
 	padding: 1em 0.4em;
 	font-size: 1.5em;
 	font-weight: 400;
@@ -219,37 +185,49 @@ h2 {
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 	color: #fff;
+	text-shadow: 1px 1px purple;
 }
 
 .game p {
+	position: relative;
+	top:-9em;
+	left:-.5em;
+	color: white;
+	text-shadow: 1px 1px purple;
 	margin-top: 0.5em;
 	font-size: 1.8em;
 	padding-bottom: 0.5em;
 }
 
 #count {
-	color: #f39c12;
+	color: purple;
+	text-shadow: 1px 1px purple;
 	font-weight: 700;
 	font-size: 1.5em;
 }
 
 input {
+	position: relative;
+	right: 12em;
+	top: 3em;
 	width: 300px;
 	height: 50px;
 	display: block;
 	padding: 0.8em 0;
 	margin: 0.8em auto 0;
-	background: #50597b;
-	color: #fff;
-	border: solid 1px #1f253d;
+	color: white;
+	border: none;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+	 background-color: Transparent;
+	 text-shadow: 1px 1px black;
 }
 
 input.button {
-	background: #1F253D;
-	color: #95a5a6;
+	color: white;
+	text-shadow: 1px 1px purple;
+	 background-color: Transparent;
 	font-size: 2em;
 	padding: 0.2em;
 	-webkit-transition: background 1s ease-in-out;
@@ -259,9 +237,8 @@ input.button {
 	transition: background 1s ease-in-out;
 }
 
-input.button:hover {
-	background: #e64c65;
-	color: #fff;
+input.button:hover , input:hover ,.content > div a {
+	color: purple;
 	-webkit-transition: background 1s ease-in-out;
 	-moz-transition: background 1s ease-in-out;
 	-ms-transition: background 1s ease-in-out;
@@ -271,6 +248,8 @@ input.button:hover {
 }
 
 input.text {
+	color: white;
+	text-shadow: 1px 1px purple;
 	text-align: center;
 	padding: 0.2em;
 	font-size: 2em;
@@ -281,41 +260,43 @@ input:focus {
 }
 
 ::-webkit-input-placeholder {
-   color: #95a5a6;
+   color: white; 
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #95a5a6;
+   color: white; 
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #95a5a6; 
+   color: white; 
 }
 
 :-ms-input-placeholder {  
-   color: #95a5a6; 
+   color: white; 
 }
 
 ul.guessBox {
-	height: 80px;
+	position: relative;
+	left: 32em;
+	top: -28em;
+	width: 7em;
 	margin: 10px auto 0;
-	background: #11a8ab;
-	padding: 0.5em;
 	display: block;
-	line-height: 2em;
+	line-height: .5em;
+	text-align: center;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
-	color: #fff;
-	overflow: auto;
 }
 ul.guessBox li {
-	display: inline;
-	background-color: #1a4e95;
-	padding: 0.3em;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	width: 95%;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	width: 50%;
 	margin: 0.2em;
-	color: #fff;
+	background-color: #00FF00;
+	opacity: .6;
+	padding:.5em;
+	font-weight: 100;
+	color: white;
+	text-shadow: 1px 1px purple;
 }

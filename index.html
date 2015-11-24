@@ -10,18 +10,20 @@
 		<link rel="stylesheet" href="styles/style.css"/> 
 	</head>
 	<body>
-		
-		<header> <!--Header -->
+			<header> <!--Header -->
 
-			<!-- Top Navigation -->
-			<nav> 
-				<ul class="clearfix">
-					<li><a class="what" href="#">How to play?</a></li>
-					<li><a class="new" href="#">+ New Game</a></li>
-				</ul>
-			</nav>
-			
-			<!-- Modal Information Box -->
+				<!-- Top Navigation -->
+				<nav> 
+					<ul class="clearfix">
+						<li><a class="what" href="#">How to play?</a></li>
+						<li><a class="new" href="#">+ New Game</a></li>
+					</ul>
+				</nav>
+				<!-- logo text -->
+				<h1>HOT or COLD</h1>
+
+			</header>
+	<!-- Modal Information Box -->
 			<div class="overlay" id="modal">
 				<div class="content">
 					<h3>What do I do?</h3>
@@ -32,33 +34,31 @@
 							<li>2. You need to <strong>guess</strong> until you can find the hidden secret number.</li>
 							<li>3. You will <strong>get feedback</strong> on how close ("hot") or far ("cold") your guess is.</li>
 						</ul>
-						<p>So, Are you ready?</p>
-						<a class="close" href="#">Got It!</a>
+						<div class="gotit"><a class="close" href="#">Got It!</a></div>
 					</div>
 				</div>
 			</div>
+			<section class="game"> <!-- Guessing Section -->
+				
+				<h2 id="feedback">Make your Guess!</h2>
 
-			<!-- logo text -->
-			<h1>HOT or COLD</h1>
+				<form>
+					<input type="text" name="userGuess" id="userGuess" class="text" maxlength="3" autocomplete="off" placeholder="Enter your Guess" required/>
+	      			<input type="submit" id="guessButton" class="button" name="submit" value="Guess"/>
+				</form>
+				
+	      		<p>Guess #<span id="count"> 0</span>!</p>
+			</section>
+			<ul id="guessList" class="guessBox clearfix">
 
-		</header>
+		</ul>
 
-		<section class="game"> <!-- Guessing Section -->
-			
-			<h2 id="feedback">Make your Guess!</h2>
-
-			<form>
-				<input type="text" name="userGuess" id="userGuess" class="text" maxlength="3" autocomplete="off" placeholder="Enter your Guess" required/>
-      			<input type="submit" id="guessButton" class="button" name="submit" value="Guess"/>
-			</form>
-			
-      		<p>Guess #<span id="count"> 0</span>!</p>
-		</section>
-		<ul id="guessList" class="guessBox clearfix">
-
-	</ul>
 		<!-- JavaScript -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/app.js"></script>
+		<audio id="hello-ladies-and-gents" src="Sound/ladies.mp3">
+		<audio id="joker-laugh" src="Sound/laugh2.mp3">
+		<audio id="joker-laugh2" src="Sound/laugh.mp3">
+		<audio id="instructions" src="Sound/instructions.mp3">
 	</body>
 </html>
