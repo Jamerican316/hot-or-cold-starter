@@ -74,7 +74,7 @@ function youLose (val) {
 		$('#count').text(counter);
 		$('#feedback').text('YOU LOSE...');
 		$("form").css("display", "none");
-		playJokerLaugh ();
+		playYouLose ();
 	}
 }
 	//This resets the game
@@ -121,5 +121,10 @@ function playJokerLaugh2 () {
   $('#joker-laugh2')[0].volume = 0.5;
   $('#joker-laugh2')[0].load();
   $('#joker-laugh2')[0].play();
+}
+function playYouLose () {
+  $('#youLose')[0].volume = 0.5;
+  $('#youLose')[0].load();
+  $('#youLose')[0].play();
 }
 
