@@ -1,7 +1,10 @@
 
 var randomNumber = Math.floor(Math.random() * 100)+1;
-var counter = 0;
-$(document).ready(function(){
+console.log	(randomNumber);
+var counter = 10;
+//store users guess in variable
+var $user_number_guess = $('#userGuess');
+$(document).ready(function() {
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
     	$(".overlay").fadeIn(1000);
@@ -10,78 +13,93 @@ $(document).ready(function(){
   	$("a.close").click(function(){
   		$(".overlay").fadeOut(1000);
   	});
-
-  	//This resets the game
-  	$(".new").click(function(){
-  		$('#feedback').text('Make your Guess!');
-  		$('#guessList').empty();
-  		randomNumber = Math.floor(Math.random() * 100)+1;
-  		counter = 0
-  		$('#count').text(counter);
-  		playJokerIntro ();
+  	//this the on sumbit function and receives user input
+  	$("form").on("submit", function (evt){
+		var $value_of_user_guess = $user_number_guess.val();
+		var user_number_int = parseInt($value_of_user_guess);
+		var difference =  Math.abs(randomNumber - user_number_int);evt.preventDefault();
+         error(user_number_int, difference, $value_of_user_guess);
+          youLose(user_number_int);
+         $('feedback').empty(''); 
+  		$user_number_guess.val('');
+  		console.log(counter);
   	});
+
+function error (guess, diff, val) {
+	if ( guess > 100 || isNaN(guess)) {
+  		alert("please enter a number between 1 and 100");
+	} 
+	else {
+	game(guess, diff, val);
+	}
+}
+
+function game(guess, diff, val) {
+	counter--;
+	$('#count').text(counter);
+	if(guess === randomNumber) {
+		$('#feedback').text('You Guess It!');
+		$("form").css("display", "none");
+		$("#guessList").append('<li>'+val+'</li>');
+		playJokerLaugh ();
+	}else if (diff >= 99) {
+		$('#feedback').text("You're ICE COLD!!");
+		$("#guessList").append('<li>'+val+'</li>');
+		playJokerLaugh2 ();
+	}else if (diff >= 50) {
+		$('#feedback').text("Now you're cold...");
+		$("#guessList").append('<li>'+val+'</li>');
+		playJokerLaugh ();
+	}else if (diff >= 30 || diff <= 49) {
+		$('#feedback').text("You're getting warmer!");
+		$("#guessList").append('<li>'+val+'</li>');
+		playJokerLaugh ();
+	}else if (diff >= 10 || diff <= 29) {
+		$('#feedback').text("You're getting hot!");
+		$("#guessList").append('<li>'+val+'</li>');
+		playJokerLaugh2 ();
+	}else if (diff >= 5 || diff <= 9) {
+		$('#feedback').text("Now you're HOT!");
+		$("#guessList").append('<li>'+val+'</li>');
+		playJokerLaugh2 ();
+	}else if (diff >= 1 || diff <= 4) {
+		$('#feedback').text("You're burning up!");
+		$("#guessList").append('<li>'+val+'</li>');
+		playJokerLaugh2 ();
+	}
+}
+
+function youLose (val) {
+	if (counter === 0) {
+		$('#count').text(counter);
+		$('#feedback').text('YOU LOSE...');
+		$("#guessList").append('<li>'+val+'</li>');
+		$("form").css("display", "none");
+		playJokerLaugh ();
+	}
+}
+	//This resets the game
+	$(".new").click(function(){
+		$('#feedback').text('Make your Guess!');
+		$('#guessList').empty();
+		randomNumber = Math.floor(Math.random() * 100)+1;
+		counter = 10;
+		$('#count').text(counter);
+		playJokerIntro ();
+		$("form").css("display", "block");
+	});
 
   	//These two funcintons clears placeholder text when input receives focus
   	$('input').focusin(function() {
 		input = $(this);
-		input.data('place-holder-text', input.attr('placeholder'))
+		input.data('place-holder-text', input.attr('placeholder'));
 		input.attr('placeholder', '');
-		instructions ();
 	});
 
 	$('input').focusout(function() {
 		input = $(this);
 		input.attr('placeholder', input.data('place-holder-text'));
 	});
-
-  	//this the on sumbit function and receives user input
-  	$("form").on("submit", function (evt){
-  		evt.preventDefault();
-
-
-  		//This counts the number of user guesses
-		counter++;
- 	 	$('#count').text(counter);
-  		
-
-  		//store users guess in variable
-  		var $user_number_guess = $('#userGuess');
-
-  		//this variable holds the vaule of user guess, which is currently a string
-  		var $value_of_user_guess = $user_number_guess.val();
-
-  		//To display the user guess history//
-  		$("#guessList").append('<li>'+$value_of_user_guess+'</li>');
-		
-
-  		//Calculates the difference between random number and guessed number//
-  		var difference =  Math.abs(randomNumber - parseInt($value_of_user_guess));
-
-		
-					if (parseInt($value_of_user_guess) === randomNumber) {
-			  			$('#feedback').text('You Guess It!');
-			  			playJokerLaugh ();
-			  		}if (difference >= 99) {
-			  			$('#feedback').text("You're ICE COLD!!");
-			  			playJokerLaugh ();
-			  		}if (difference >= 50 && difference < 99) {
-			  			$('#feedback').text("Now you're cold...");
-			  			playJokerLaugh ();
-			  		}if (difference >= 30 && difference < 50) {
-			  			$('#feedback').text("You're getting warmer!");
-			  			playJokerLaugh ();
-			  		}if (difference >= 10 && difference < 30) {
-			  			$('#feedback').text("You're getting hot!");
-			  			playJokerLaugh2 ();
-			  		}if (difference >= 5 && difference < 10) {
-			  			$('#feedback').text("Now you're HOT!");
-			  			playJokerLaugh2 ();
-			  		}if (difference >= 1 && difference < 5) {
-			  			$('#feedback').text("You're burning up!");
-			  			playJokerLaugh2 ();
-		  			}
-  		 $user_number_guess.val('');
-  	});
 });
 
 function playJokerIntro () {
@@ -102,8 +120,3 @@ function playJokerLaugh2 () {
   $('#joker-laugh2')[0].play();
 }
 
-function instructions () {
-  $('#instructions')[0].volume = 0.5;
-  $('#instructions')[0].load();
-  $('#instructions')[0].play();
-}
