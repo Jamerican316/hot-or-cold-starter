@@ -55,12 +55,12 @@ nav ul li {
 
 nav ul li:first-child {
 	float: left;
-	padding: 2px;
+	padding: 6px;
 }
 
 nav ul li:last-child {
 	float: right;
-	padding: 2px;
+	padding: 6px;
 }
 
 nav a {
@@ -159,6 +159,16 @@ h1 {
 .gotit {
 	margin-top: 5em;
 }
+
+a.close:hover {
+	color: #00FF00;
+	-webkit-transition: background .2s ease-in-out;
+	-moz-transition: background .2s ease-in-out;
+	-ms-transition: background .2s ease-in-out;
+	-o-transition: background .2s ease-in-out;
+	transition: background .2s ease-in-out;
+	cursor: pointer;
+}
 /*---------------------------------------------------------------------------------
    Game Section Styles
 ---------------------------------------------------------------------------------*/
@@ -234,6 +244,7 @@ input.button {
 	 background-color: Transparent;
 	font-size: 2em;
 	padding: 0.2em;
+	width:3.5em;
 	-webkit-transition: background 1s ease-in-out;
 	-moz-transition: background 1s ease-in-out;
 	-ms-transition: background 1s ease-in-out;
@@ -241,13 +252,13 @@ input.button {
 	transition: background 1s ease-in-out;
 }
 
-input.button:hover ,.content > div a {
-	color: purple;
-	-webkit-transition: background 1s ease-in-out;
-	-moz-transition: background 1s ease-in-out;
-	-ms-transition: background 1s ease-in-out;
-	-o-transition: background 1s ease-in-out;
-	transition: background 1s ease-in-out;
+input.button:hover {
+	background-color: #00FF00;
+	-webkit-transition: background .5s ease-in-out;
+	-moz-transition: background .5s ease-in-out;
+	-ms-transition: background .5s ease-in-out;
+	-o-transition: background .5s ease-in-out;
+	transition: background .5s ease-in-out;
 	cursor: pointer;
 }
 
