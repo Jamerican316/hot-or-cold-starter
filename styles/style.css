@@ -21,8 +21,7 @@
 body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	text-align: center;
-	background-image: url('../images/joker.jpg');
-	background-repeat: none;
+	background: url('../images/joker.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
      -moz-background-size: cover;
      -o-background-size: cover;
@@ -56,10 +55,12 @@ nav ul li {
 
 nav ul li:first-child {
 	float: left;
+	padding: 2px;
 }
 
 nav ul li:last-child {
 	float: right;
+	padding: 2px;
 }
 
 nav a {
@@ -83,7 +84,7 @@ h1 {
 	height: 100%;
 	color: #fff;
 	position: absolute;
-	background-image: url('../images/jokerbkgrnd.jpg');
+	background: url('../images/jokerbkgrnd.jpg') no-repeat center center fixed;
 	-webkit-background-size: cover;
      -moz-background-size: cover;
      -o-background-size: cover;
@@ -131,20 +132,19 @@ h1 {
 	text-align: justify;
 }
 
-.content > div ul {
+.content > div ol {
 	margin-bottom: -30px;
 	padding: 0 0 30px 20px;
-	text-align: left;
+	color: white;
 }
 
-.content > div ul li {
+.content > div ol li {
+	text-align: left;
 	padding: 5px 0;
-	display: block;	
-	list-style-type: disc;
 	line-height: 1.5em;
 }
 
-.content > div ul li strong{
+.content > div ol li strong{
 	text-decoration: underline;
 }
 
@@ -240,7 +240,7 @@ input.button {
 	transition: background 1s ease-in-out;
 }
 
-input.button:hover , input:hover ,.content > div a {
+input.button:hover ,.content > div a {
 	color: purple;
 	-webkit-transition: background 1s ease-in-out;
 	-moz-transition: background 1s ease-in-out;

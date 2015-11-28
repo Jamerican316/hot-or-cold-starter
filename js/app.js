@@ -50,19 +50,19 @@ function game(guess, diff, val) {
 		$('#feedback').text("Now you're cold...");
 		$("#guessList").append('<li>'+val+'</li>');
 		playJokerLaugh ();
-	}else if (diff >= 30 || diff <= 49) {
+	}else if (diff >= 30 && diff <= 49) {
 		$('#feedback').text("You're getting warmer!");
 		$("#guessList").append('<li>'+val+'</li>');
 		playJokerLaugh ();
-	}else if (diff >= 10 || diff <= 29) {
+	}else if (diff >= 10 && diff <= 29) {
 		$('#feedback').text("You're getting hot!");
 		$("#guessList").append('<li>'+val+'</li>');
 		playJokerLaugh2 ();
-	}else if (diff >= 5 || diff <= 9) {
+	}else if (diff >= 5 && diff <= 9) {
 		$('#feedback').text("Now you're HOT!");
 		$("#guessList").append('<li>'+val+'</li>');
 		playJokerLaugh2 ();
-	}else if (diff >= 1 || diff <= 4) {
+	}else if (diff >= 1 && diff <= 4) {
 		$('#feedback').text("You're burning up!");
 		$("#guessList").append('<li>'+val+'</li>');
 		playJokerLaugh2 ();
@@ -73,7 +73,6 @@ function youLose (val) {
 	if (counter === 0) {
 		$('#count').text(counter);
 		$('#feedback').text('YOU LOSE...');
-		$("#guessList").append('<li>'+val+'</li>');
 		$("form").css("display", "none");
 		playJokerLaugh ();
 	}
@@ -87,6 +86,10 @@ function youLose (val) {
 		$('#count').text(counter);
 		playJokerIntro ();
 		$("form").css("display", "block");
+		$('input').focusout(function() {
+		input = $(this);
+		input.attr('placeholder', input.data('place-holder-text'));
+	});
 	});
 
   	//These two funcintons clears placeholder text when input receives focus
