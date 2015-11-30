@@ -26,7 +26,7 @@ $(document).ready(function() {
   	});
 
 function error (guess, diff, val) {
-	if ( guess > 100 || isNaN(guess)) {
+	if ( guess > 100 || isNaN(guess) || guess < 1) {
   		alert("please enter a number between 1 and 100");
 	} 
 	else {
@@ -72,7 +72,7 @@ function game(guess, diff, val) {
 function youLose (val) {
 	if (counter === 0) {
 		$('#count').text(counter);
-		$('#feedback').text('YOU LOSE...');
+		$('#feedback').text('YOU LOSE...' + 'secret number was...' + randomNumber);
 		$("form").css("display", "none");
 		playYouLose ();
 	}
